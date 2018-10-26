@@ -16,7 +16,7 @@ client = session.client(service_name='secretsmanager', region_name=args.region)
 
 secrets = json.loads(client.get_secret_value(SecretId=args.secret_name)["SecretString"])
 
-f = open("/home/td-agent/.bashrc", "a")
+f = open("/var/lib/td-agent/.bashrc", "a")
 
 for key, value in secrets.items():
     if key == "sqs_url":
